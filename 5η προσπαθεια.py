@@ -48,43 +48,47 @@ class Test():
         self.Label.destroy()
         self.button.destroy()
         self.canvas.destroy()
-        self.Instructions = tk.Label(self.r,text = 'Σε αυτό το τεστ θα εμφανίζονται στην οθόνη σου κάποιες λέξεις (ονόματα χρωμάτων) καθώς και κάποιες επιλογές χρωμάτων  \nαπό κάτω και εσύ πρέπει να διαλέξεις την επιλογή που αντιστοιχεί στο  χρώμα που είναι γραμμένη η λέξη  .\nΟ προεπιλεγμένος αριθμός ερωτημάτων ειναι: 10 ερωτήσεις χώρις το φαίνομενο stroop και 10 με το φαινόμενο.\n Ο χρήστης μπορει να κάνει όσες προσπάθειες θέλει στο κάθε ερώτημα και δεν έχει τεθεί χρονόμετρο.\nΑν θέλεις να αλλάξεις κάποια απο τις παραμέτρους αυτές, μπορείς να το κάνεις από κάτω. : ',font='arial 10 bold')
+        self.Instruction_label = tk.Label(self.r,text = 'Οδηγίες:', font = 'arial 30 bold')
+        self.Instruction_label.grid(row = 0, column = 0)
+        self.Instructions = tk.Label(self.r,text = 'Σε αυτό το τεστ θα εμφανίζονται στην οθόνη σου κάποιες λέξεις (ονόματα χρωμάτων) καθώς και κάποιες\n επιλογές χρωμάτων από κάτω και εσύ πρέπει να διαλέξεις την επιλογή που αντιστοιχεί στο  χρώμα που είναι \nγραμμένη η λέξη.Ο προεπιλεγμένος αριθμός ερωτημάτων ειναι: 10 ερωτήσεις χώρις το φαίνομενο stroop \nκαι 10 με το φαινόμενο.Ο χρήστης μπορει να κάνει όσες προσπάθειες θέλει στο κάθε ερώτημα και δεν έχει τεθεί\nχρονόμετρο.Αν θέλεις να αλλάξεις κάποια απο τις παραμέτρους αυτές, μπορείς να το κάνεις από κάτω. : ',font='arial 10 bold')
         self.Instructions.grid(padx = 0,pady = 2)
-        self.label_stroop = tk.Label(self.r,font = 'arial 10',text = '\n\nΠόσες πιθανές απαντήσεις θέλεις να σου δίνονται;........................................................................................\n\nΠόσες ερωτήσεις θέλεις να έχει το τεστ χωρίς το φαινόμενο stroop; [πάτα Enter για τέλος]:..............................\n\nΠόσες ερωτήσεις θέλεις να έχει το τεστ με το φαινόμενο stroop; [πάτα Enter για τέλος]:..................................\n\nΠόσες προσπάθειες θέλεις να έχει η κάθε ερώτηση; [πάτα Enter για τέλος]:............................................. \n\nΘέλεις οι απαντησεις σου να έχουν όριο χρόνου; :....................................................................................')
-        self.label_stroop.grid(row = 1, rowspan = 4, column = 0)
+        self.label_stroop = tk.Label(self.r,font = 'arial 10',text = '\n\nΠόσες πιθανές απαντήσεις θέλεις να σου δίνονται;..........................................................................................\n\nΠόσες ερωτήσεις θέλεις να έχει το τεστ χωρίς το φαινόμενο stroop; [πάτα Enter για τέλος]:................................\n\nΠόσες ερωτήσεις θέλεις να έχει το τεστ με το φαινόμενο stroop; [πάτα Enter για τέλος]:.....................................\n\nΠόσες προσπάθειες θέλεις να έχει η κάθε ερώτηση; [πάτα Enter για τέλος]:....................................................\n\nΘέλεις οι απαντησεις σου να έχουν όριο χρόνου; :..........................................................................................')
+        self.label_stroop.grid(row = 2, rowspan = 4, column = 0)
         self.two_answers = tk.Button(self.r, text = '2',font = 'arial 10 bold',command = self.answer_number2)
         self.four_answers = tk.Button(self.r, text = '4',font = 'arial 10 bold',command = self.answer_number4)
-        self.two_answers.grid(row = 1, column = 1)
-        self.four_answers.grid(row = 1, column = 2)
+        self.two_answers.grid(row = 2, column = 1)
+        self.four_answers.grid(row = 2, column = 2)
         self.question_no_stroop = tk.Entry(self.r)
         self.question_no_stroop.bind('<Return>',self.get_no_stroop_number)
-        self.question_no_stroop.grid(row = 2, column = 1)
+        self.question_no_stroop.grid(row = 3, column = 1)
         self.question_yes_stroop = tk.Entry(self.r)
         self.question_yes_stroop.bind('<Return>',self.get_yes_stroop_number)
-        self.question_yes_stroop.grid(row = 3, column = 1)
+        self.question_yes_stroop.grid(row = 4, column = 1)
         self.tries = tk.Entry(self.r,)
         self.tries.bind('<Return>',self.try_number)
         self.no_tries = tk.Button(self.r,text = 'Άπειρες Προσπάθειες',command = self.apires)
-        self.tries.grid(row = 4 , column = 1)
-        self.no_tries.grid(row = 4 , column = 3)
+        self.tries.grid(row = 5 , column = 1)
+        self.no_tries.grid(row = 5 , column = 3)
         self.yes_timer = tk.Button(self.r, text = 'ΝΑΙ',font = 'arial 10 bold',command = self.yes_timer)
-        self.yes_timer.grid(row = 5, column = 1)
+        self.yes_timer.grid(row = 6, column = 1)
         self.no_timer = tk.Button(self.r, text = 'ΟΧΙ',font = 'arial 10 bold',command = self.no_timer)
-        self.no_timer.grid(row = 5, column = 3)
+        self.no_timer.grid(row = 6, column = 3)
         self.timer_choices = tk.Label(self.r, text = '   Γράψε εδώ πόσα δευτερόλεπτα θέλεις να περιμένει το χρονόμετρο: [πάτα Enter για τέλος]:.....................', fg = 'lightgrey',font = 'arial 10')
-        self.timer_choices.grid( row = 8, column = 0)
+        self.timer_choices.grid( row = 7, column = 0)
+        self.epiloges_label = tk.Label(self.r, text = 'Τελικές επιλογές:', font = 'arial 20 bold')
+        self.epiloges_label.grid(row = 10, column = 0)
         self.epiloges1 = tk.Label(self.r,text='Αριθμός πιθανών απαντήσεων: {}'.format(self.answer_num))
         self.epiloges2 = tk.Label(self.r,text="Αριθμός χωρίς το φαινόμενο Stroop: {}".format(self.no_stroop_number))
         self.epiloges3 = tk.Label(self.r,text="Αριθμός με το φαινόμενο Stroop: {}".format(self.yes_stroop_number))
         self.epiloges4 = tk.Label(self.r,text="Αριθμός προσπαθειών: {}".format(self.prospatheies))
         self.epiloges5 = tk.Label(self.r,text="Όριο χρόνου κάθε ερώτησης: {}".format(self.xronometro))
-        self.epiloges1.grid(row=9,column=0)
-        self.epiloges2.grid(row=10,column=0)
-        self.epiloges3.grid(row=11,column=0)
-        self.epiloges4.grid(row=12,column=0)
-        self.epiloges5.grid(row=13,column=0)
+        self.epiloges1.grid(row=11,column=0)
+        self.epiloges2.grid(row=12,column=0)
+        self.epiloges3.grid(row=13,column=0)
+        self.epiloges4.grid(row=14,column=0)
+        self.epiloges5.grid(row=15,column=0)
         self.end = tk.Button(self.r,text = 'Πάτα εδώ αν τελείωσες',font = 'arial 30 bold', command = self.start_test)
-        self.end.grid(row = 14,columnspan = 2)
+        self.end.grid(row = 16,columnspan = 2)
 
     def answer_number2(self):
         self.answer_num = 2
@@ -143,6 +147,7 @@ class Test():
                 
     def start_test(self):
         self.t = 0
+        self.Instruction_label.destroy()
         self.Instructions.destroy()
         self.label_stroop.destroy()
         self.two_answers.destroy()
@@ -154,6 +159,7 @@ class Test():
         self.yes_timer.destroy()
         self.no_timer.destroy()
         self.timer_choices.destroy()
+        self.epiloges_label.destroy()
         self.epiloges1.destroy()
         self.epiloges2.destroy()
         self.epiloges3.destroy()
@@ -405,6 +411,8 @@ class Test():
         self.r2.destroy()
         self.save_results()
     def save_results(self):
+        self.print_no_stroop = []
+        self.print_yes_stroop = []
         self.no_stroop_numbers = []
         self.yes_stroop_numbers = []
         for i in self.no_stroop:
@@ -422,26 +430,30 @@ class Test():
             thewriter.writerow(['Try','no stroop','yes stroop'])
             for x in range(0,len(self.no_stroop)):
                 if self.no_stroop[x] == 'Λάθος':
-                    self.no_stroop[x] = "False"
+                    self.print_no_stroop.append("False")
                     
                 elif self.no_stroop[x] == 'Εκτός Χρόνου':
-                    self.no_stroop[x] = "Time expired"
+                    self.print_no_stroop.append("Time expired")
+
+                else : self.print_no_stroop.append(self.no_stroop[x])
                     
             for x in range(0,len(self.yes_stroop)):
                 if self.yes_stroop[x] == 'Λάθος':
-                    self.yes_stroop[x] = "False"
+                    self.print_yes_stroop.append("False")
                     
                 elif self.yes_stroop[x] == 'Εκτός Χρόνου':
-                    self.yes_stroop[x] = "Time expired"                    
+                    self.print_yes_stroop.append("Time expired")
+
+                else : self.print_yes_stroop.append(self.yes_stroop[x])
                     
             for i in range(0,self.b):
                 try:
-                    thewriter.writerow([i+1,self.no_stroop[i],self.yes_stroop[i]])
+                    thewriter.writerow([i+1,self.print_no_stroop[i],self.print_yes_stroop[i]])
                 except:
                     if self.b == self.no_stroop_number :
-                        thewriter.writerow((i+1,self.no_stroop[i],'-'))
+                        thewriter.writerow((i+1,self.print_no_stroop[i],'-'))
                     else :
-                        thewriter.writerow((i+1,'-',self.yes_stroop[i]))
+                        thewriter.writerow((i+1,'-',self.print_yes_stroop[i]))
             thewriter.writerow(['Average',self.no_stroop_average,self.yes_stroop_average])
         root.mainloop()
 
